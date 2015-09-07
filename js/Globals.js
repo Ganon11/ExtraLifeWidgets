@@ -4,10 +4,10 @@ var GLOBALS = {
     PARTICIPANT_ID:                   '141729',
 
     // Leave these alone!
-    TEAM_URL_FORMAT:                  'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&format=json&teamID=',
-    TEAM_PARTICIPANTS_URL_FORMAT:     'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.teamParticipants&format=json&teamID=',
-    PARTICIPANT_URL_FORMAT:           'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&format=json&participantID=',
-    PARTICIPANT_DONATIONS_URL_FORMAT: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participantDonations&format=json&participantID=',
+    TEAM_URL_FORMAT:                  'http://karantza.org:8080/index.cfm?fuseaction=donorDrive.team&format=json&teamID=',
+    TEAM_PARTICIPANTS_URL_FORMAT:     'http://karantza.org:8080/index.cfm?fuseaction=donorDrive.teamParticipants&format=json&teamID=',
+    PARTICIPANT_URL_FORMAT:           'http://karantza.org:8080/index.cfm?fuseaction=donorDrive.participant&format=json&participantID=',
+    PARTICIPANT_DONATIONS_URL_FORMAT: 'http://karantza.org:8080/index.cfm?fuseaction=donorDrive.participantDonations&format=json&participantID=',
 
     GET_TEAM_URL: function(teamId) {
         return GLOBALS.TEAM_URL_FORMAT + teamId;
@@ -55,7 +55,7 @@ var GLOBALS = {
             url: myUrl,
             data: {},
             type: 'GET',
-            dataType: 'jsonp',
+            dataType: 'json',
             success: function(data) {
                 return data;
             },
