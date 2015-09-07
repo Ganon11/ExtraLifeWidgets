@@ -1,0 +1,19 @@
+{
+  "name": "ExtraLifeWidgets",
+  "version": "1.0.0",
+  "description": "Extra Life 2015 Widgets Extraordinaires",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ganon11/ExtraLifeWidgets.git"
+  },
+  "author": "Mike Stark <stark3@gmail.com>, Adina Rubinoff <adinarubinoff@gmail.com>, Alex Karantza <alex.karantza@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ganon11/ExtraLifeWidgets/issues"
+  },
+  "homepage": "https://github.com/Ganon11/ExtraLifeWidgets",
+  "devDependencies": {
+    "grunt-contrib-connect": "^0.11.2"
+  }
+}
