@@ -38,6 +38,7 @@ function WriteError(data) {
 }
 
 function UpdateInfo() {
-    var participantId = GLOBALS.PARTICIPANT_ID;
+    var queryStringParams = GLOBALS.GET_QUERY_STRING_VARS();
+    var participantId = queryStringParams["participantId"];
     GLOBALS.GET_PARTICIPANT_DONATION_INFO(participantId, WriteTopDonor, WriteError);
 }

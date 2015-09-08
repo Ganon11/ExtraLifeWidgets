@@ -68,6 +68,7 @@ function WriteError(data) {
 }
 
 function UpdateInfo() {
-    var teamId = GLOBALS.TEAM_ID;
+    var queryStringParams = GLOBALS.GET_QUERY_STRING_VARS();
+    var teamId = queryStringParams["teamId"];
     GLOBALS.GET_TEAM_PARTICIPANTS_INFO(teamId, GetAllDonorInfo, WriteError);
 }

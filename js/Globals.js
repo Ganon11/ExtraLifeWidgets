@@ -1,9 +1,4 @@
 var GLOBALS = {
-    // Edit these to your Participant/Team ID
-    TEAM_ID:                          '20954',
-    PARTICIPANT_ID:                   '141729',
-
-    // Leave these alone!
     TEAM_URL_FORMAT:                  'http://karantza.org:8080/index.cfm?fuseaction=donorDrive.team&format=json&teamID=',
     TEAM_PARTICIPANTS_URL_FORMAT:     'http://karantza.org:8080/index.cfm?fuseaction=donorDrive.teamParticipants&format=json&teamID=',
     PARTICIPANT_URL_FORMAT:           'http://karantza.org:8080/index.cfm?fuseaction=donorDrive.participant&format=json&participantID=',
@@ -68,5 +63,13 @@ var GLOBALS = {
             success: success,
             error: error
         });
+    },
+
+    GET_QUERY_STRING_VARS: function() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, key, value) {
+            vars[key] = value;
+        });
+        return vars;
     }
 };
