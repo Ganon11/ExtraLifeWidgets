@@ -12,8 +12,8 @@
     {
       "name": "Adina Rubinoff",
       "email": "adinarubinoff@gmail.com"
-    }, 
-    {   
+    },
+    {
       "name": "Alex Karantza",
       "email": "alex.karantza@gmail.com"
     }
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/Ganon11/ExtraLifeWidgets",
   "devDependencies": {
+    "bower": "^1.5.2",
     "grunt-contrib-connect": "^0.11.2"
   }
 }
