@@ -37,8 +37,6 @@ function WriteTopDonor(data, expectedLength) {
         });
         var topDonor = data[data.length - 1];
         $('#widget').html(topDonor[0] + ': $' + topDonor[1].toFixed(2));
-    } else {
-        return;
     }
 }
 

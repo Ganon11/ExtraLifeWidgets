@@ -4,7 +4,7 @@ $(document).ready(function () {
     window.setInterval(UpdateInfo, 10000);
 });
 
-function GetTopDonor(data) {    
+function GetTopDonor(data) {
     var groupedData = {};
     $.each(data, function(i, val) {
         var name = val.donorName;
