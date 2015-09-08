@@ -25,55 +25,48 @@ var GLOBALS = {
         return GLOBALS.PARTICIPANT_DONATIONS_URL_FORMAT + participantId;
     },
 
-    GET_TEAM_INFO: function(id) {
+    GET_TEAM_INFO: function(id, success, error) {
         $.ajax({
             url: GLOBALS.GET_TEAM_URL(id),
             data: {},
             type: 'GET',
-            dataType: 'jsonp',
-            success: function(data) {
-                return data;
-            }
+            dataType: 'json',
+            success: success,
+            error: error
         });
     },
 
-    GET_TEAM_PARTICIPANTS_INFO: function(id) {
+    GET_TEAM_PARTICIPANTS_INFO: function(id, success, error) {
         $.ajax({
             url: GLOBALS.GET_TEAM_PARTICIPANTS_URL(id),
             data: {},
             type: 'GET',
-            dataType: 'jsonp',
-            success: function(data) {
-                return data;
-            }
+            dataType: 'json',
+            success: success,
+            error: error
         });
     },
 
-    GET_PARTICIPANT_INFO: function(id) {
+    GET_PARTICIPANT_INFO: function(id, success, error) {
         var myUrl = GLOBALS.GET_PARTICIPANT_URL(id);
         $.ajax({
             url: myUrl,
             data: {},
             type: 'GET',
             dataType: 'json',
-            success: function(data) {
-                return data;
-            },
-            error: function(data) {
-                console.log('alert!');
-            }
+            success: success,
+            error: error
         });
     },
 
-    GET_PARTICIPANT_DONATION_INFO: function(id) {
+    GET_PARTICIPANT_DONATION_INFO: function(id, success, error) {
         $.ajax({
             url: GLOBALS.GET_PARTICIPANT_DONATIONS_URL(id),
             data: {},
             type: 'GET',
-            dataType: 'jsonp',
-            success: function(data) {
-                return data;
-            }
+            dataType: 'json',
+            success: success,
+            error: error
         });
     }
 };
