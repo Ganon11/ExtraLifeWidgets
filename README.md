@@ -12,7 +12,7 @@ Now you should be good to go forth and develop!
 Possible Widgets
 ================
 
-* Top X Donors 
+* Top X Donors (Mike)
   * Given: Participant ID/Team ID
   * Retrieve: All donations
   * Group and sum by username/donor name
