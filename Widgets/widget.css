@@ -1,0 +1,72 @@
+body {
+  font-family: 'Cantarell';
+  color:white;
+  border: solid #23c1e8 4px;
+  background-color: #194d6c;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight:  bold;
+  margin: 0.2em;
+}
+
+div#wrapper {
+  padding: 5px;
+}
+
+div#thermometer {
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  z-index: 5;
+}
+
+div#color {
+  height: 100%;
+  bottom: 0px;
+  position: absolute;
+  z-index: 10;
+}
+
+div#thermocontainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+div#container {
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+
+div#goal {
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  font-weight: bold;
+  color: #0e3b56;
+  z-index: 10;
+}
+
+div#current {
+  position: absolute;
+  bottom: 0px;
+  font-weight: bold;
+  color: #0e3b56;
+  z-index: 10;
+}
+
+div#achieved {
+  position: absolute;
+  top: 5px;
+  /* The 105 is about half the width of the text - this will center the text on the thermometer */
+  left: calc(50% - 105px);
+  font-size: 18px;
+  z-index: 10;
+}

@@ -1,12 +1,25 @@
 <html>
-	<head>
-		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-		<script type="text/javascript" src="../js/Globals.js"></script>
-		<script type="text/javascript" src="../js/ParticipantProgress.js"></script>
-	</head>
-	<body>
-		<div id="widget"></div>
-		<button onclick="UpdateInfo()">Click Here!</button>
-	</body>
+  <head>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../js/Globals.js"></script>
+    <script type="text/javascript" src="../js/ParticipantProgress.js"></script>
+    <link rel="stylesheet" type="text/css" href="widget.css">
+    <link href="http://fonts.googleapis.com/css?family=Cantarell:700" rel="stylesheet" type="text/css">
+  </head>
+  <body ng-app="progress" ng-controller="progressCtrl">
+    <div id="wrapper">
+      <h1>{{name}}'S PROGRESS</h1>
+    
+      <div id="container">
+        <div id="thermocontainer">
+          <div ng-style="thermStyle" id="color"></div>
+          <div id="thermometer"></div>
+        </div>
+        <div id="goal" ng-style="goalStyle">goal: ${{goal}}</div>
+        <div id="current" ng-style="totalStyle">total: ${{curTotal}}</div>
+        <div id="achieved" ng-show="goalAchieved">GOAL ACHIEVED!</div>
+      </div>
+    </div>
+  </body>
 </html>
