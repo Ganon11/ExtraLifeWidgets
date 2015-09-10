@@ -54,9 +54,15 @@ div#goal {
   z-index: 10;
 }
 
-div#current {
+div#totalcontainer {
+  position: relative;
+}
+
+div#total {
   position: absolute;
   bottom: 0px;
+  /* some padding */
+  right: 5px;
   font-weight: bold;
   color: #0e3b56;
   z-index: 10;
