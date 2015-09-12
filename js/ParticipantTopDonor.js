@@ -28,7 +28,7 @@ function GetTopDonors(data, topX) {
 }
 
 function WriteTopDonor(data) {
-    var topX = GLOBALS.GET_QUERY_STRING_VARS()["topX"] || 3;
+    var topX = GLOBALS.getUrlVars()["topX"] || 3;
     var topDonors = GetTopDonors(data, topX);
     console.log(JSON.stringify(topDonors));
     //$('#widget').html(topDonor[0] + ': $' + topDonor[1].toFixed(2));
@@ -40,6 +40,6 @@ function WriteError(data) {
 }
 
 function UpdateInfo() {
-    var participantId = GLOBALS.GET_QUERY_STRING_VARS()["id"];
+    var participantId = GLOBALS.getUrlVars()["id"];
     GLOBALS.GET_PARTICIPANT_DONATION_INFO(participantId, WriteTopDonor, WriteError);
 }

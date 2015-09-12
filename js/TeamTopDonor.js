@@ -35,7 +35,7 @@ function WriteTopDonor(data, expectedLength) {
             b = b[1];
             return a > b ? -1 : (a < b ? 1 : 0);
         });
-        var topX = queryStringParams["topX"] || 3;
+        var topX = GLOBALS.getUrlVars()["topX"] || 3;
         var topDonors = data.slice(0, topX);
         $('#widget').html(topDonor[0] + ': $' + topDonor[1].toFixed(2));
     }
@@ -67,7 +67,6 @@ function WriteError(data) {
 }
 
 function UpdateInfo() {
-    var queryStringParams = GLOBALS.GET_QUERY_STRING_VARS();
-    var teamId = queryStringParams["id"];
+    var teamId = GLOBALS.getUrlVars()["id"];
     GLOBALS.GET_TEAM_PARTICIPANTS_INFO(teamId, GetAllDonorInfo, WriteError);
 }
