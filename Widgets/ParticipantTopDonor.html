@@ -1,11 +1,21 @@
 <html>
-	<head>
-		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-		<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
-		<script type="text/javascript" src="../js/Globals.js"></script>
-		<script type="text/javascript" src="../js/ParticipantTopDonor.js"></script>
-	</head>
-	<body>
-		<div id="widget"></div>
-	</body>
+  <head>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../js/Globals.js"></script>
+    <script type="text/javascript" src="../js/ParticipantTopDonor.js"></script>
+    <link rel="stylesheet" type="text/css" href="widget.css">
+    <link href="http://fonts.googleapis.com/css?family=Cantarell:700" rel="stylesheet" type="text/css">
+  </head>
+  <body ng-app="top-donor" ng-controller="topDonorCtrl">
+    <div id="wrapper">
+      <h1>{{name}}'S TOP DONORS</h1>
+
+      <div id="container">
+        <div ng-repeat="(index, donorObj) in topDonors">
+          <div>{{index + 1}}: {{donorObj.name}} ({{donorObj.value | currency:"$":2}})</div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
