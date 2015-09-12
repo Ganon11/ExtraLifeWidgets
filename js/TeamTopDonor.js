@@ -75,7 +75,6 @@
     }
 
     var GetTeamInfo = function(data) {
-      console.log(JSON.stringify(data));
       $scope.groupName = data.name.toUpperCase();
       $scope.$apply();
     };
