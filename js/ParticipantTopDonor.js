@@ -4,7 +4,7 @@ $(document).ready(function () {
     window.setInterval(UpdateInfo, 10000);
 });
 
-function GetTopDonor(data) {
+function GetTopDonors(data, topX) {
     var groupedData = {};
     $.each(data, function(i, val) {
         var name = val.donorName;
@@ -21,15 +21,17 @@ function GetTopDonor(data) {
     sortedData.sort(function(a, b) {
         a = a[1];
         b = b[1];
-        return a < b ? -1 : (a > b ? 1 : 0);
+        return a > b ? -1 : (a < b ? 1 : 0);
     });
 
-    return sortedData[0];
+    return sortedData.slice(0, topX);
 }
 
 function WriteTopDonor(data) {
-    var topDonor = GetTopDonor(data);
-    $('#widget').html(topDonor[0] + ': $' + topDonor[1].toFixed(2));
+    var topX = GLOBALS.GET_QUERY_STRING_VARS()["topX"] || 3;
+    var topDonors = GetTopDonors(data, topX);
+    console.log(JSON.stringify(topDonors));
+    //$('#widget').html(topDonor[0] + ': $' + topDonor[1].toFixed(2));
 }
 
 function WriteError(data) {
@@ -38,7 +40,6 @@ function WriteError(data) {
 }
 
 function UpdateInfo() {
-    var queryStringParams = GLOBALS.GET_QUERY_STRING_VARS();
-    var participantId = queryStringParams["participantId"];
+    var participantId = GLOBALS.GET_QUERY_STRING_VARS()["id"];
     GLOBALS.GET_PARTICIPANT_DONATION_INFO(participantId, WriteTopDonor, WriteError);
 }

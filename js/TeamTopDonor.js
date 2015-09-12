@@ -33,14 +33,13 @@ function WriteTopDonor(data, expectedLength) {
         data.sort(function(a, b) {
             a = a[1];
             b = b[1];
-            return a < b ? -1 : (a > b ? 1 : 0);
+            return a > b ? -1 : (a < b ? 1 : 0);
         });
-        var topDonor = data[data.length - 1];
+        var topX = queryStringParams["topX"] || 3;
+        var topDonors = data.slice(0, topX);
         $('#widget').html(topDonor[0] + ': $' + topDonor[1].toFixed(2));
     }
 }
-
-
 
 function GetAllDonorInfo(data) {
     var donationInfo = [];
@@ -69,6 +68,6 @@ function WriteError(data) {
 
 function UpdateInfo() {
     var queryStringParams = GLOBALS.GET_QUERY_STRING_VARS();
-    var teamId = queryStringParams["teamId"];
+    var teamId = queryStringParams["id"];
     GLOBALS.GET_TEAM_PARTICIPANTS_INFO(teamId, GetAllDonorInfo, WriteError);
 }
