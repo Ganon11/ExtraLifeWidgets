@@ -10,12 +10,10 @@
       // First, sum all the donations for each name.
       var groupedData = {};
       $.each(data, function(i, val) {
-        var name = val.donorName;
-        var amount = val.donationAmount;
         if (groupedData.name !== undefined) {
-          groupedData[name] += amount;
+          groupedData[val.donorName] += val.donationAmount;
         } else {
-          groupedData[name] = amount;
+          groupedData[val.donorName] = val.donationAmount;
         }
       });
 
@@ -30,9 +28,7 @@
 
       // Finally, sort dat shit! Descending order kthxbai
       sortedData.sort(function(a, b) {
-        a = a.value;
-        b = b.value;
-        return a > b ? -1 : (a < b ? 1 : 0);
+        return b.value - a.value;
       });
 
       // Now return the top X
@@ -50,7 +46,6 @@
     };
 
     var Update = function() {
-      $scope.name = $scope.topDonors = undefined;
       GLOBALS.GET_PARTICIPANT_INFO(userId, GetUserInfo, Error)
       GLOBALS.GET_PARTICIPANT_DONATION_INFO(userId, GetTopDonors, Error);
     };

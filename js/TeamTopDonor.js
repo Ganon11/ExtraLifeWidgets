@@ -12,12 +12,10 @@
       $.each(data, function(i, val) {
         // val is an array of "donor objects": { "name": name, "value": value }
         $.each(val, function(i, donor) {
-          var name = donor.name;
-          var amount = donor.value;
           if (groupedData.name !== undefined) {
-            groupedData[name] += amount;
+            groupedData[donor.name] += donor.value;
           } else {
-            groupedData[name] = amount;
+            groupedData[donor.name] = donor.value;
           }
         });
       });
@@ -33,9 +31,7 @@
 
       // Finally, sort dat shit! Descending order kthxbai
       sortedData.sort(function(a, b) {
-        a = a.value;
-        b = b.value;
-        return a > b ? -1 : (a < b ? 1 : 0);
+        return b.value - a.value;
       });
 
       return sortedData.slice(0, topX);
@@ -84,7 +80,6 @@
     };
 
     var Update = function() {
-      $scope.groupName = $scope.topDonors = undefined;
       GLOBALS.GET_TEAM_INFO(teamId, GetTeamInfo, Error);
       GLOBALS.GET_TEAM_PARTICIPANTS_INFO(teamId, GetAllDonorInfo, Error);
     };
