@@ -11,19 +11,19 @@ var GLOBALS = {
   PARTICIPANT_DONATIONS_URL_FORMAT: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participantDonations&format=json&participantID=',
 
   GET_TEAM_URL: function(teamId) {
-    return GLOBALS.PROXY_URL_FORMAT + GLOBALS.TEAM_URL_FORMAT + teamId;
+    return GLOBALS.PROXY_URL_FORMAT + escape(GLOBALS.TEAM_URL_FORMAT) + teamId;
   },
 
   GET_TEAM_PARTICIPANTS_URL: function(teamId) {
-    return GLOBALS.PROXY_URL_FORMAT + GLOBALS.TEAM_PARTICIPANTS_URL_FORMAT + teamId;
+    return GLOBALS.PROXY_URL_FORMAT + escape(GLOBALS.TEAM_PARTICIPANTS_URL_FORMAT) + teamId;
   },
 
   GET_PARTICIPANT_URL: function(participantId) {
-    return GLOBALS.PROXY_URL_FORMAT + GLOBALS.PARTICIPANT_URL_FORMAT + participantId;
+    return GLOBALS.PROXY_URL_FORMAT + escape(GLOBALS.PARTICIPANT_URL_FORMAT) + participantId;
   },
 
   GET_PARTICIPANT_DONATIONS_URL: function(participantId) {
-    return GLOBALS.PROXY_URL_FORMAT + GLOBALS.PARTICIPANT_DONATIONS_URL_FORMAT + participantId;
+    return GLOBALS.PROXY_URL_FORMAT + escape(GLOBALS.PARTICIPANT_DONATIONS_URL_FORMAT) + participantId;
   },
 
   GET_TEAM_INFO: function(id, success, error) {
