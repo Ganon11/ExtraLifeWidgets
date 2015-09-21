@@ -50,8 +50,8 @@
       GLOBALS.GET_PARTICIPANT_DONATION_INFO(userId, GetTopDonors, Error);
     };
 
-    // UpdateInfo immediately, and then once every 10 seconds.
+    // UpdateInfo immediately, and then once every 30 seconds.
     Update();
-    window.setInterval(Update, 10000);
+    window.setInterval(Update, 30000);
   });
 })();

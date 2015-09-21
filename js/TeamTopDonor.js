@@ -84,8 +84,8 @@
       GLOBALS.GET_TEAM_PARTICIPANTS_INFO(teamId, GetAllDonorInfo, Error);
     };
 
-    // UpdateInfo immediately, and then once every 10 seconds.
+    // UpdateInfo immediately, and then once every 30 seconds.
     Update();
-    window.setInterval(Update, 10000);
+    window.setInterval(Update, 30000);
   });
 })();
