@@ -1,9 +1,4 @@
 var GLOBALS = {
-  // Edit these to your Participant/Team ID
-  TEAM_ID:              '20954',
-  PARTICIPANT_ID:           '141729',
-
-  // Leave these alone!
   PROXY_URL_FORMAT: 'https://jsonp.afeld.me/?url=',
   TEAM_URL_FORMAT: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.team&format=json&teamID=',
   TEAM_PARTICIPANTS_URL_FORMAT: 'http://www.extra-life.org/index.cfm?fuseaction=donorDrive.teamParticipants&format=json&teamID=',
