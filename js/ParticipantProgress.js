@@ -5,6 +5,7 @@
   
     var urlVars = GLOBALS.getUrlVars();
     var uid = urlVars['id'];
+    var gotGoal = gotTotal = false;
 
     //borrowed from http://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c
     var hslToRgb = function(h, s, l){
@@ -48,10 +49,9 @@
       
     };
 
-    //TODO - probably hide the goal/total divs until this loads
     var tryToDoPercent = function(){
       //only do this if both parts exist
-      if ($scope.goal===undefined || $scope.curTotal===undefined) { return; }
+      if (!gotGoal || !gotTotal) { return; }
       
       var percent = $scope.curTotal / $scope.goal;
       if ( percent >= 1 ) {
@@ -65,21 +65,25 @@
         width: $scope.pct+"%",
         "background-color": color
       };
-      //hacky text measurement - add 60 for 'total: $'
+      //hacky text measurement - add 60 for 'total: $' and 5 for margin
       //TODO - add fn to actually measure text
-      var textWidth = 60 + 13 * $scope.curTotal.toString().length;
-      if ($scope.pct < 14) {
-        //hardcoded - past this point it goes off the edge of the thermometer
-        //TODO - this won't really work. :( figure out a better way
-        $scope.totalStyle = { left: "0px" };
-      } else { 
-        $scope.totalStyle = { left: "calc("+$scope.pct+"% - "+textWidth+"px)" };
-      }
+      //note: this is a bit sneaky. I'm keeping the text in a div with the same
+      //width as the colored bar, and lining it up with the right edge.
+      //BUT here we set the min-width to the text width so it'll never go off the edge.s
+      var textWidth = 65 + 13 * $scope.curTotal.toString().length;
+      $scope.totalContStyle =  {
+        width: $scope.pct+"%",
+        minWidth: textWidth+"px"
+      };
+      
+      $scope.showNumbers = true;
     }
 
     var saveUserInfo = function(info) {
       $scope.name = info.firstName.toUpperCase();
       $scope.goal = info.fundraisingGoal;
+      gotGoal = true;
+      
       //gotta use calc so it'll line up when the curTotal reaches the goal
       //add 54 for 'goal: $'
       var textWidth = 50 + 15 * $scope.goal.toString().length;
@@ -95,6 +99,8 @@
         sum = sum + info[i].donationAmount;
       }
       $scope.curTotal = sum;
+      gotTotal = true;
+      
       tryToDoPercent();
       //trigger a digest cycle; we're not in one now due to ajax
       $scope.$apply();
@@ -106,13 +112,15 @@
     };
     
     var update = function(){
-      $scope.sum = $scope.curTotal = $scope.pct = undefined;
+      //leaving this in for now - handy for debugging, esp css stuff
+      //uid = String(Number(uid) + 1);
+      gotGoal = gotTotal = false;
       GLOBALS.GET_PARTICIPANT_INFO(uid, saveUserInfo, error);
       GLOBALS.GET_PARTICIPANT_DONATION_INFO(uid, saveDonationInfo, error);
     };
     
-    //TODO - timeout
     update();
+    window.setInterval(update, 1000);
 
   });
 

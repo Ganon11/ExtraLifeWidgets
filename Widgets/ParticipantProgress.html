@@ -16,8 +16,10 @@
           <div ng-style="thermStyle" id="color"></div>
           <div id="thermometer"></div>
         </div>
-        <div id="goal" ng-style="goalStyle">goal: ${{goal}}</div>
-        <div id="current" ng-style="totalStyle">total: ${{curTotal}}</div>
+        <div id="goal" ng-style="goalStyle" ng-hide="goal===undefined">goal: ${{goal}}</div>
+        <div id="totalcontainer" ng-style="totalContStyle" ng-hide="curTotal===undefined">
+          <div id="total">total: ${{curTotal}}</div>
+        </div>
         <div id="achieved" ng-show="goalAchieved">GOAL ACHIEVED!</div>
       </div>
     </div>
