@@ -5,6 +5,7 @@
   
     var urlVars = GLOBALS.getUrlVars();
     var uid = urlVars['id'];
+    var isTeam = urlVars['team'];
     var gotGoal = gotTotal = false;
 
     //borrowed from http://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c
@@ -30,8 +31,6 @@
       return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
     }
 
-    //TODO - to be really angulary, this stuff should all be in a factory
-    //to be used by both the participant and team versions
     var getColorPercent = function(pct){
       //HSL values of blue and green colors
       var S = 1;
@@ -77,17 +76,35 @@
       };
       
       $scope.showNumbers = true;
-    }
+    };
+    
+    var setUpGoalText = function(){
+      //gotta use calc so it'll line up when the curTotal reaches the goal
+      //add 54 for 'goal: $'
+      var textWidth = 50 + 15 * $scope.goal.toString().length;
+      $scope.goalStyle = { left: "calc(100% - "+textWidth+"px)" };
+    };
+    
+    var saveTeamInfo = function(info) {
+      $scope.name = info.name.toUpperCase();
+      $scope.goal = info.fundraisingGoal;
+      $scope.curTotal = info.totalRaisedAmount;
+      gotGoal = gotTotal = true;
+      
+      setUpGoalText();      
+      
+      tryToDoPercent();
+      //trigger a digest cycle; we're not in one now due to ajax
+      $scope.$apply();
+    };
 
     var saveUserInfo = function(info) {
       $scope.name = info.firstName.toUpperCase();
       $scope.goal = info.fundraisingGoal;
       gotGoal = true;
+
+      setUpGoalText();     
       
-      //gotta use calc so it'll line up when the curTotal reaches the goal
-      //add 54 for 'goal: $'
-      var textWidth = 50 + 15 * $scope.goal.toString().length;
-      $scope.goalStyle = { left: "calc(100% - "+textWidth+"px)" };
       tryToDoPercent();
       //trigger a digest cycle; we're not in one now due to ajax
       $scope.$apply();
@@ -108,15 +125,19 @@
     
     //TODO - better error handling. probably a uniform error page btw all widgets
     var error = function(){
-      console.log('Bad user ID in URL');
+      console.log('Bad ID in URL');
     };
     
     var update = function(){
       //leaving this in for now - handy for debugging, esp css stuff
       //uid = String(Number(uid) + 1);
       gotGoal = gotTotal = false;
-      GLOBALS.GET_PARTICIPANT_INFO(uid, saveUserInfo, error);
-      GLOBALS.GET_PARTICIPANT_DONATION_INFO(uid, saveDonationInfo, error);
+      if (isTeam){
+        GLOBALS.GET_TEAM_INFO(uid, saveTeamInfo, error);
+      } else {
+        GLOBALS.GET_PARTICIPANT_INFO(uid, saveUserInfo, error);
+        GLOBALS.GET_PARTICIPANT_DONATION_INFO(uid, saveDonationInfo, error);
+      }
     };
     
     update();
