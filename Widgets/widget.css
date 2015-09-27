@@ -2,11 +2,12 @@ body {
   font-family: 'Cantarell';
   color:white;
   background-color: #194d6c;
+  font-weight:700;
 }
 
 h1 {
   font-size: 2em;
-  font-weight:  bold;
+  font-weight:700;
   margin: 0.2em;
 }
 
@@ -48,7 +49,6 @@ div#goal {
   position: absolute;
   top: 0px;
   right: 5px;
-  font-weight: bold;
   color: #0e3b56;
   z-index: 10;
 }
@@ -62,7 +62,6 @@ div#total {
   bottom: 0px;
   /* some padding */
   right: 5px;
-  font-weight: bold;
   color: #0e3b56;
   z-index: 10;
 }
@@ -76,11 +75,18 @@ div#achieved {
   z-index: 10;
 }
 
+div#message {
+  font-weight: 400;
+  font-style: italic;
+  text-align: center;
+}
+
 div#error {
   border: solid #A94120 4px;3
   background-color: #872E12;
   padding:0.5em;
   font-style:italic;
+  font-weight: 400;
 }
 
 /* Tables */
@@ -89,18 +95,25 @@ table {
   width: 100%;
   border-spacing: 0px;
   margin:0;
+  font-weight:700;
 }
 
 th {
   padding-left:0.4em;
   font-size: 1.3em;
-  font-weight:  bold;
   color:#23c1e8;
   text-align:left;
 }
 
 td {
   padding-left:0.4em;
+}
+
+td.expand {
+  width:100%;
+}
+td.rightAlign {
+  text-align: right;
 }
 
 tr {
