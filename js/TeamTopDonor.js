@@ -4,7 +4,7 @@
   app.controller( 'topDonorCtrl', function( $scope, $http ) {
     var queryStringVars = GLOBALS.getUrlVars();
     var teamId = queryStringVars['id'];
-    var topX = queryStringVars['topX'];
+    var topX = queryStringVars['topX'] || 3;
 
     var GetTopDonors = function(data) {
       // Need to flatten into an map of name: value
