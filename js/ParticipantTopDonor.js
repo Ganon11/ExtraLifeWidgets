@@ -4,7 +4,7 @@
   app.controller( 'topDonorCtrl', function( $scope, $http ) {
     var queryStringVars = GLOBALS.getUrlVars();
     var userId = queryStringVars['id'];
-    var topX = queryStringVars['topX'];
+    var topX = queryStringVars['topX'] || 3;
 
     var GetTopDonors = function(data) {
       // First, sum all the donations for each name.
