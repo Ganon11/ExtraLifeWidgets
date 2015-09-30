@@ -51,7 +51,9 @@ Available Widgets
   * Works with either team or participant
   * Query String Parameters
     * `id` - Numeric Team or Participant ID
-    * `team` - Flag to control team or participant. Set to `true` to display Team Progress, or `false` to display Participant Progress
+    * `team` - Optional flag to control team or participant
+      * The default value is `false`
+      * Any value provided here is a string. So adding `team=false` or `team=0` will be interpreted as a `true` value
 
 Upcoming Widgets
 ================
