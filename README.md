@@ -24,12 +24,12 @@ Embedding Widgets in OBS
   * Requires the [CLRBrowser Extension](https://obsproject.com/forum/resources/clr-browser-source-plugin.22/)
   * In your scene, select `Add > CLRBrowser`
   * Set the URL to the URL of the locally-hosted widget, along with the query string parameters
-    * e.g. `http://localhost:9001/Widgets/Progress.html?id=12345&team=false`
+    * e.g. `http://localhost:9001/Widgets/Progress.html?id=12345&team=true`
   * Adjust the width and height to fit on your stream
 * Embedding a widget in OBS Multiplatform
   * In your scene, select `Add > BrowserSource`
   * Set the URL to the URL of the locally-hosted widget, along with the query string parameters
-    * e.g. `http://localhost:9001/Widgets/Progress.html?id=12345&team=false`
+    * e.g. `http://localhost:9001/Widgets/Progress.html?id=12345&`
   * Adjust the width and height to fit on your stream
   * You can use a low FPS value, since most widgets update once every 10 seconds or longer
 
