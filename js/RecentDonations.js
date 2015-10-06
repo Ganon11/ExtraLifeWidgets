@@ -9,7 +9,7 @@ app.controller('RecentDonationsControl', function($scope) {
     if (updateEvery === undefined) { updateEvery = 10; }
 
     var count = Number(urlVars['count']);
-    if (count === undefined) { count = 5; }
+    if (isNaN(count)) { count = 5; }
 
     var messageTruncateLength = 150;
 
