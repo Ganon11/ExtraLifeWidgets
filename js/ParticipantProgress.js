@@ -6,6 +6,7 @@
     var urlVars = GLOBALS.getUrlVars();
     var uid = urlVars['id'];
     var isTeam = urlVars['team'];
+    if (isTeam === 'false' || Number(isTeam) === 0) { isTeam = false; }
     var gotGoal = gotTotal = false;
 
     //borrowed from http://axonflux.com/handy-rgb-to-hsl-and-rgb-to-hsv-color-model-c
