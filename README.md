@@ -2,20 +2,12 @@ This will be a project containing some tools for creating Extra Life widgets.
 
 How to Use
 ==========
-On a fresh download, run the following commands to pull down all relevant dependencies:
+The widgets are controlled by JavaScript files inside the js/ directory.
 
-`npm install`  
-`bower install`
+The HTML for the widgets is stored in the Widgets/ directory.
 
-Now you should be good to go forth and develop!
+You should be able to edit those files and open them locally to see the widgets in action.
 
-Starting the Grunt server
-=========================
-
-* In the root directory of the `ExtraLifeWidgets` project, type `grunt`
-  * This will start a web server on port `9001` of `localhost`
-  * You should be able to see the widgets in action by navigating to `http://localhost:9001/Widgets/` in a browser
-    * Select a Widget.html, and add the required query string arguments
 
 Embedding Widgets in OBS
 ========================
