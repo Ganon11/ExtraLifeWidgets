@@ -10,10 +10,11 @@
       // First, sum all the donations for each name.
       var groupedData = {};
       $.each(data, function(i, val) {
+        var name = val.donorName || "Anonymous";
         if (groupedData.name !== undefined) {
-          groupedData[val.donorName] += val.donationAmount;
+          groupedData[name] += val.donationAmount;
         } else {
-          groupedData[val.donorName] = val.donationAmount;
+          groupedData[name] = val.donationAmount;
         }
       });
 

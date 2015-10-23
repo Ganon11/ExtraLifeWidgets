@@ -158,7 +158,7 @@ app.controller('RecentDonationsControl', function($scope) {
       // Go through the array of contributors for this user, and add them to our array
       var newContributions = $.map(data, function(x, i) {
         return {
-          name: x.donorName,
+          name: x.donorName || "Anonymous",
           amount: "$" + x.donationAmount.toFixed(2),
           message: x.message,
           date: Date.parse(x.createdOn)
