@@ -12,10 +12,11 @@
       $.each(data, function(i, val) {
         // val is an array of "donor objects": { "name": name, "value": value }
         $.each(val, function(i, donor) {
+          var name = donor.name || "Anonymous";
           if (groupedData.name !== undefined) {
-            groupedData[donor.name] += donor.value;
+            groupedData[name] += donor.value;
           } else {
-            groupedData[donor.name] = donor.value;
+            groupedData[name] = donor.value;
           }
         });
       });
