@@ -13,7 +13,7 @@
         // val is an array of "donor objects": { "name": name, "value": value }
         $.each(val, function(i, donor) {
           var name = donor.name || "Anonymous";
-          if (groupedData.name !== undefined) {
+          if (name in groupedData) {
             groupedData[name] += donor.value;
           } else {
             groupedData[name] = donor.value;

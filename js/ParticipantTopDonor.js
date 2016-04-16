@@ -11,7 +11,7 @@
       var groupedData = {};
       $.each(data, function(i, val) {
         var name = val.donorName || "Anonymous";
-        if (groupedData.name !== undefined) {
+        if (name in groupedData) {
           groupedData[name] += val.donationAmount;
         } else {
           groupedData[name] = val.donationAmount;
