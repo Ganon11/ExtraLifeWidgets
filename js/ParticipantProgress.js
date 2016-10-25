@@ -87,7 +87,7 @@
     };
     
     var saveTeamInfo = function(info) {
-      $scope.name = info.name.toUpperCase();
+      $scope.name = info.displayName.toUpperCase();
       $scope.goal = info.fundraisingGoal;
       $scope.curTotal = info.totalRaisedAmount;
       gotGoal = gotTotal = true;
@@ -104,7 +104,7 @@
       $scope.goal = info.fundraisingGoal;
       gotGoal = true;
 
-      setUpGoalText();     
+      setUpGoalText();
       
       tryToDoPercent();
       //trigger a digest cycle; we're not in one now due to ajax
