@@ -37,30 +37,6 @@ app.controller('RecentDonationsControl', function($scope) {
     var dataChanged = function() {
       // Only update once all our callbacks have added their data.
       if (waitingOn == 0) {
-        
-      /* // Some test data.
-        contributions = [
-        {
-          name: "Alex Karantza",
-          date: Date.parse("07 05 1988"),
-          amount: "$100.00",
-          message: "I am the very model of a modern major general, Ive information vegetable animal and mineral; I know the kings of england and I quote the fights historical, from marathon to waterloo in order catagorical",
-        },
-        {
-          name: "Mike Stark",
-          date: Date.parse("08 01 1994"),
-          amount: "$99.00",
-          message: "DOUBLE HEAD",
-        },
-        {
-          name: "Adina Rubinoff",
-          date: Date.parse("10 18 1989"),
-          amount: "$101.00",
-          message: null,
-        },
-        ]
-        */
-
         // Sort all our contributions
         contributions.sort(function(a,b) { 
           return b.date - a.date;
@@ -114,10 +90,10 @@ app.controller('RecentDonationsControl', function($scope) {
       if (isTeam) { 
         // We need the name of the team, and the list of members.
         GLOBALS.GET_TEAM_INFO(uid, function(data) {
-          if (data.name === undefined) {
+          if (data.displayName === undefined) {
             $scope.displayName = "(Invalid ID)"
           } else {
-            $scope.displayName = data.name
+            $scope.displayName = data.displayName
           }
 
           // Display the name to the UI.
@@ -142,7 +118,7 @@ app.controller('RecentDonationsControl', function($scope) {
         members = [uid];
         
         GLOBALS.GET_PARTICIPANT_INFO(uid, function(data) {
-          $scope.displayName = data["firstName"] || "(Invalid ID)";
+          $scope.displayName = data["displayName"] || "(Invalid ID)";
           dataChanged();
         }, function(error) {
           $scope.displayName = "?";

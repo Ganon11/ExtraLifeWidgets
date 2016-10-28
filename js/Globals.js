@@ -1,10 +1,10 @@
 var GLOBALS = {
-  PROXY_URL_FORMAT: 'https://jsonp.afeld.me/?url=',
-  EXTRA_LIFE_URL_FORMAT: escape('http://www.extra-life.org/index.cfm?format=json&fuseaction='),
-  TEAM_URL_FORMAT: escape('donorDrive.team&teamID='),
-  TEAM_PARTICIPANTS_URL_FORMAT: escape('donorDrive.teamParticipants&teamID='),
-  PARTICIPANT_URL_FORMAT: escape('donorDrive.participant&participantID='),
-  PARTICIPANT_DONATIONS_URL_FORMAT: escape('donorDrive.participantDonations&participantID='),
+  PROXY_URL_FORMAT: '',
+  EXTRA_LIFE_URL_FORMAT: 'http://www.extra-life.org/index.cfm?format=json&fuseaction=',
+  TEAM_URL_FORMAT: 'donorDrive.team&teamID=',
+  TEAM_PARTICIPANTS_URL_FORMAT: 'donorDrive.teamParticipants&teamID=',
+  PARTICIPANT_URL_FORMAT: 'donorDrive.participant&participantID=',
+  PARTICIPANT_DONATIONS_URL_FORMAT: 'donorDrive.participantDonations&participantID=',
 
   GET_TEAM_URL: function(teamId) {
     return GLOBALS.PROXY_URL_FORMAT + GLOBALS.EXTRA_LIFE_URL_FORMAT + GLOBALS.TEAM_URL_FORMAT + teamId;

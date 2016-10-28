@@ -100,7 +100,7 @@
     };
 
     var saveUserInfo = function(info) {
-      $scope.name = info.firstName.toUpperCase();
+      $scope.name = info.displayName.toUpperCase();
       $scope.goal = info.fundraisingGoal;
       gotGoal = true;
 
