@@ -11,10 +11,12 @@
       var groupedData = {};
       $.each(data, function(i, val) {
         var name = val.donorName || "Anonymous";
-        if (groupedData.name !== undefined) {
-          groupedData[name] += val.donationAmount;
-        } else {
-          groupedData[name] = val.donationAmount;
+        if (name != "Anonymous") {
+          if (groupedData.hasOwnProperty(name)) {
+            groupedData[name] += val.donationAmount;
+          } else {
+            groupedData[name] = val.donationAmount;
+          }
         }
       });
 
@@ -38,7 +40,7 @@
     };
 
     var GetUserInfo = function(data) {
-      $scope.name = data.firstName.toUpperCase();
+      $scope.name = data.displayName.toUpperCase();
       $scope.$apply();
     };
 
